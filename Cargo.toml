@@ -11,7 +11,7 @@ description = "Test helpers for Rust"
 edition = "2021"
 homepage = "https://github.com/synesissoftware/test_help-rs"
 license = "BSD-3-Clause"
-name = "test_helpers"
+name = "test_help-rs"
 readme = "README.md"
 version = "0.0.0"
 
