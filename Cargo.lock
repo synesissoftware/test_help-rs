@@ -3,5 +3,14 @@
 version = 3
 
 [[package]]
+name = "base-traits"
+version = "0.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1d14fc4f83b2b810f24389f7a18a830b21329735794e1cbd3154dbe90349c132"
+
+[[package]]
 name = "test_help-rs"
-version = "0.0.0"
+version = "0.1.0"
+dependencies = [
+ "base-traits",
+]

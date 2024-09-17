@@ -13,11 +13,19 @@ homepage = "https://github.com/synesissoftware/test_help-rs"
 license = "BSD-3-Clause"
 name = "test_help-rs"
 readme = "README.md"
-version = "0.0.0"
+version = "0.1.0"
 
 
 # ##########################################################
 # Targets
+
+[lib]
+name = "test_helpers"
+path = "src/lib.rs"
+
+[[example]]
+name = "scalars"
+path = "examples/scalars.rs"
 
 
 # ##########################################################
@@ -25,11 +33,29 @@ version = "0.0.0"
 
 [features]
 
+default = [
+
+]
+
+# General features:
+#
+# - "null-feature" - a feature that has no effect (and, thus, is useful for simplifying driver scripts);
+
+null-feature = []
+
+# Crate-specific features:
+#
+# - "nan-equality" - allows two `f64::NAN` values to be evaluated to be equal for the purposes of passing the assertions. NOTE: this affects all stock comparisons of the crate, but does not affect custom implementations of `xxApproximateEqualityEvaluator`;
+
+nan-equality = []
+
 
 # ##########################################################
 # Dependencies
 
 [dependencies]
+
+base-traits = "~0.0.3"
 
 
 [dev-dependencies]
