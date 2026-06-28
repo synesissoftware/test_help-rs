@@ -1,9 +1,10 @@
-# **test_help-rs** Changes
+# test_help-rs Changes <!-- omit in toc -->
 
 
 ## 0.1.1 - 28th June 2026
 
 * added **CHANGES.md**;
+* added **TODO.md**;
 * renamed **.rustfmt.toml** => **rustfmt.toml**;
 
 
