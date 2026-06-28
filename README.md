@@ -2,10 +2,10 @@
 
 ![Language](https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white)
 [![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/test_help-rs.svg)](https://github.com/synesissoftware/test_help-rs/releases/latest)
-[![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/test_help-rs)](https://github.com/synesissoftware/test_help-rs/commits/master)
 [![Crates.io](https://img.shields.io/crates/v/test_help-rs.svg)](https://crates.io/crates/test_help-rs)
+[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/test_help-rs.svg)](https://github.com/synesissoftware/test_help-rs/releases/latest)
 ![MSRV](https://img.shields.io/badge/MSRV-1.74-lightgrey)
+[![CI](https://github.com/synesissoftware/test_help-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/synesissoftware/test_help-rs/actions/workflows/ci.yml)
 [![docs.rs](https://docs.rs/test_help-rs/badge.svg)](https://docs.rs/test_help-rs)
 
 Test helpers for Rust

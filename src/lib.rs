@@ -1,16 +1,7 @@
 // lib.rs : test_help-rs
 
 #![allow(non_camel_case_types)]
-
-
-// /////////////////////////////////////////////////////////
-// crate-level feature definitions
-
 #![cfg_attr(all(test, feature = "nightly-constants"), feature(more_float_constants))]
-
-
-// /////////////////////////////////////////////////////////
-// crate-level feature discrimination
 
 
 // /////////////////////////////////////////////////////////
@@ -94,8 +85,8 @@ pub mod traits {
         );
     }
 
-    /// Trait that allows an implementing type instance to be evaluated with the
-    /// constructs of this crate.
+    /// Trait that allows an implementing type instance to be
+    /// evaluated with the constructs of this crate.
     ///
     /// NOTE: it is implemented for any types that implement
     /// `base_traits::ToF64` (and `std::fmt::Debug`).
@@ -949,7 +940,7 @@ mod tests {
 
 
         #[test]
-        fn TEST_margin_TEST_1() {
+        fn TEST_margin_1() {
             let margin_factor = 0.0;
             let m = margin(margin_factor);
 
@@ -964,7 +955,7 @@ mod tests {
         }
 
         #[test]
-        fn TEST_margin_TEST_2() {
+        fn TEST_margin_2() {
             let margin_factor = 0.001;
             let m = margin(margin_factor);
 
@@ -991,7 +982,7 @@ mod tests {
 
 
         #[test]
-        fn TEST_multiplier_TEST_1() {
+        fn TEST_multiplier_1() {
             let multiplier_factor = 0.0;
             let m = multiplier(multiplier_factor);
 
@@ -1006,7 +997,7 @@ mod tests {
         }
 
         #[test]
-        fn TEST_multiplier_TEST_2() {
+        fn TEST_multiplier_2() {
             let multiplier_factor = 0.001;
             let m = multiplier(multiplier_factor);
 
@@ -1139,7 +1130,8 @@ mod tests {
             assert_scalar_ne_approx!(f64::NAN, f64::NAN);
         }
 
-        /// Demonstrate that feature `"nan-equality"` only changes stock behaviour
+        /// Demonstrate that feature `"nan-equality"` only changes stock
+        /// behaviour
         #[test]
         fn TEST_assert_scalar_ne_approx_3_PARAMETER_WITH_CustomEvaluator() {
 
@@ -1254,14 +1246,14 @@ mod tests {
 
 
         #[test]
-        fn example_test_of_scalar_evaluation() {
+        fn TEST_example_test_of_scalar_evaluation() {
             let expected = 3.0;
             let actual = 3.0001;
             assert_scalar_eq_approx!(expected, actual, margin(0.0001));
         }
 
         #[test]
-        fn example_test_of_vector_evaluation() {
+        fn TEST_example_test_of_vector_evaluation() {
             let expected = &[ 3.0, -40404.0, 1.23456 ];
             let actual = Vec::from([ 3.0, -40410.0, 1.234567 ]);
             assert_vector_eq_approx!(expected, actual, multiplier(0.00015));
