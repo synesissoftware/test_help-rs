@@ -1050,37 +1050,44 @@ mod tests {
         }
 
 
-        #[test]
-        fn TEST_assert_scalar_eq_approx_2_PARAMETER_FOR_EXACTLY_EQUAL_VALUES() {
+        mod TEST_assert_scalar_eq_approx_2_PARAMETER_FOR_EXACTLY_EQUAL_VALUES {
+            #![allow(non_snake_case)]
 
-            // literals
-            assert_scalar_eq_approx!(-1.23456789e-10, -1.23456789e-10);
-            assert_scalar_eq_approx!(-0.123456789, -0.123456789);
-            assert_scalar_eq_approx!(-0.1, -0.1);
-            assert_scalar_eq_approx!(0.0, 0.0);
-            assert_scalar_eq_approx!(0.1, 0.1);
-            assert_scalar_eq_approx!(0.123456789, 0.123456789);
-            assert_scalar_eq_approx!(1.23456789e+10, 1.23456789e+10);
 
-            // `f64` associated constants (stable as of edition 2021 / Rust 1.56)
-            assert_scalar_eq_approx!(f64::EPSILON, f64::EPSILON);
-            assert_scalar_eq_approx!(f64::INFINITY, f64::INFINITY);
-            assert_scalar_eq_approx!(f64::MAX, f64::MAX);
-            assert_scalar_eq_approx!(f64::MIN, f64::MIN);
-            assert_scalar_eq_approx!(f64::MIN_POSITIVE, f64::MIN_POSITIVE);
-            assert_scalar_eq_approx!(f64::NEG_INFINITY, f64::NEG_INFINITY);
+            #[test]
+            fn TEST_literals() {
 
-            #[cfg(feature = "nan-equality")]
-            {
-                assert_scalar_eq_approx!(f64::NAN, f64::NAN);
-            }
-            #[cfg(not(feature = "nan-equality"))]
-            {
-                assert_scalar_ne_approx!(f64::NAN, f64::NAN);
+                assert_scalar_eq_approx!(-1.23456789e-10, -1.23456789e-10);
+                assert_scalar_eq_approx!(-0.123456789, -0.123456789);
+                assert_scalar_eq_approx!(-0.1, -0.1);
+                assert_scalar_eq_approx!(0.0, 0.0);
+                assert_scalar_eq_approx!(0.1, 0.1);
+                assert_scalar_eq_approx!(0.123456789, 0.123456789);
+                assert_scalar_eq_approx!(1.23456789e+10, 1.23456789e+10);
             }
 
-            // `std::f64::consts` (stable as of edition 2021 / Rust 1.56)
-            {
+            #[test]
+            fn TEST_f64_ASSOCIATED_CONSTANTS() {
+
+                assert_scalar_eq_approx!(f64::EPSILON, f64::EPSILON);
+                assert_scalar_eq_approx!(f64::INFINITY, f64::INFINITY);
+                assert_scalar_eq_approx!(f64::MAX, f64::MAX);
+                assert_scalar_eq_approx!(f64::MIN, f64::MIN);
+                assert_scalar_eq_approx!(f64::MIN_POSITIVE, f64::MIN_POSITIVE);
+                assert_scalar_eq_approx!(f64::NEG_INFINITY, f64::NEG_INFINITY);
+
+                #[cfg(feature = "nan-equality")]
+                {
+                    assert_scalar_eq_approx!(f64::NAN, f64::NAN);
+                }
+                #[cfg(not(feature = "nan-equality"))]
+                {
+                    assert_scalar_ne_approx!(f64::NAN, f64::NAN);
+                }
+            }
+
+            #[test]
+            fn TEST_std_f64_CONSTANTS() {
                 use std::f64::consts::*;
 
                 assert_scalar_eq_approx!(E, E);
@@ -1104,8 +1111,18 @@ mod tests {
                 assert_scalar_eq_approx!(TAU, TAU);
             }
 
+            #[test]
+            #[cfg(rustc_1_94_or_newer)]
+            fn TEST_std_f64_CONSTANTS_rust_1_94() {
+                use std::f64::consts::*;
+
+                assert_scalar_eq_approx!(EULER_GAMMA, EULER_GAMMA);
+                assert_scalar_eq_approx!(GOLDEN_RATIO, GOLDEN_RATIO);
+            }
+
+            #[test]
             #[cfg(feature = "nightly-constants")]
-            {
+            fn TEST_std_f64_CONSTANTS_NIGHTLY() {
                 use std::f64::consts::*;
 
                 assert_scalar_eq_approx!(FRAC_1_SQRT_PI, FRAC_1_SQRT_PI);

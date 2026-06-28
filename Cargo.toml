@@ -72,6 +72,11 @@ nightly-constants = []
 # ##########################################################
 # Dependencies
 
+[build-dependencies]
+
+bt-rs = { version = "0.0.1", default-features = false, features = [
+] }
+
 [dependencies]
 
 base-traits = { version = "0", default-features = false, features = [

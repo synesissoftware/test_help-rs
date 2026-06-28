@@ -15,6 +15,7 @@
 * aligned **README.md** badge order and layout with **Diagnosticism.Rust**;
 * completed **README.md** documentation (constants, enumerations, features, macros, efferent/afferent dependencies);
 * added **examples/vectors.rs** example program;
+* extended stable **`f64` / `consts`** exact-equality tests for **`GOLDEN_RATIO`** and **`EULER_GAMMA`** (Rust 1.94+, via **`build.rs`** `rustc_1_94_or_newer` cfg);
 * aligned **.vscode/settings.json** and **rustfmt.toml** with **Diagnosticism.Rust**;
 * added **scripts/fmt**, **scripts/check_doc_76.py**, and **scripts/check_test_names.py**;
 

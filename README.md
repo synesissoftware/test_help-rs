@@ -57,7 +57,8 @@ fn example_test_of_vector_evaluation() {
 	- [Contribution guidelines](#contribution-guidelines)
 	- [Dependencies](#dependencies)
 		- [Efferent (fan-out)](#efferent-fan-out)
-			- [Development Dependencies](#development-dependencies)
+		- [Build Dependencies](#build-dependencies)
+		- [Development Dependencies](#development-dependencies)
 		- [Afferent (fan-in)](#afferent-fan-in)
 	- [Related projects](#related-projects)
 	- [License](#license)
@@ -190,7 +191,14 @@ Libraries upon which **test_help-rs** depends:
 * [**base-traits**](https://github.com/synesissoftware/base-traits) — [`ToF64`](https://docs.rs/base-traits/latest/base_traits/trait.ToF64.html) trait used by [`TestableAsF64`](https://docs.rs/test_help-rs/latest/test_helpers/traits/trait.TestableAsF64.html);
 
 
-##### Development Dependencies
+#### Build Dependencies
+
+Libraries used only when building **test_help-rs** (not required by downstream consumers):
+
+* [**bt-rs**](https://github.com/synesissoftware/bt-rs) — [`rustc::compiler_version()`](https://docs.rs/bt-rs/latest/bt_rs/rustc/fn.compiler_version.html) in **build.rs** to detect Rust 1.94+ and set the `rustc_1_94_or_newer` cfg for unit tests of stable `std::f64::consts` added in that release;
+
+
+#### Development Dependencies
 
 None currently.
 
