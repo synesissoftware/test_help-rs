@@ -5,6 +5,7 @@
 
 * added **CHANGES.md**;
 * added **TODO.md**;
+* added **.gitattributes**;
 * renamed **.rustfmt.toml** => **rustfmt.toml**;
 
 
