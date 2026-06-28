@@ -40,6 +40,10 @@ path = "src/lib.rs"
 name = "scalars"
 path = "examples/scalars.rs"
 
+[[example]]
+name = "vectors"
+path = "examples/vectors.rs"
+
 
 # ##########################################################
 # Features

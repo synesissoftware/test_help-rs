@@ -151,13 +151,21 @@ The following traits are defined:
 
 ## Examples
 
-An example program is provided in [**examples/scalars.rs**](./examples/scalars.rs):
+Example programs are provided in the **examples** directory:
+
+* [**examples/scalars.rs**](./examples/scalars.rs) — scalar approximate equality and inequality:
 
 ```sh
 cargo run --example scalars
 ```
 
-It exercises `assert_scalar_eq_approx!()` and `assert_scalar_ne_approx!()` with margin- and multiplier-based evaluators.
+* [**examples/vectors.rs**](./examples/vectors.rs) — vector approximate equality and inequality (slice and `Vec`):
+
+```sh
+cargo run --example vectors
+```
+
+**scalars** exercises `assert_scalar_eq_approx!()` and `assert_scalar_ne_approx!()` with margin- and multiplier-based evaluators. **vectors** includes the README introduction example and similar pass/fail demonstrations for vector assertions.
 
 
 ## Project Information

@@ -14,6 +14,7 @@
 * added **.github/workflows/ci.yml** (test, clippy, fmt, MSRV, `"nan-equality"`, nightly `"nightly-constants"`, DOC_76 and RUST_TEST_NAMING checkers);
 * aligned **README.md** badge order and layout with **Diagnosticism.Rust**;
 * completed **README.md** documentation (constants, enumerations, features, macros, efferent/afferent dependencies);
+* added **examples/vectors.rs** example program;
 * aligned **.vscode/settings.json** and **rustfmt.toml** with **Diagnosticism.Rust**;
 * added **scripts/fmt**, **scripts/check_doc_76.py**, and **scripts/check_test_names.py**;
 
