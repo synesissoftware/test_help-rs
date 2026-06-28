@@ -79,19 +79,19 @@ declare_and_publish!(vector_comparison_result, VectorComparisonResult);
 pub mod constants;
 pub mod traits;
 
-mod api;
 mod internal;
 #[macro_use]
 mod macros;
 mod utils;
 
-pub use api::{
+declare_and_publish!(
+    api,
     evaluate_scalar_eq_approx,
     evaluate_vector_eq_approx,
     margin,
     multiplier,
     zero_margin_or_multiplier,
-};
+);
 
 
 #[cfg(test)]

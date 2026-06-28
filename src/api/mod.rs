@@ -1,16 +1,20 @@
 // mod.rs : src/api
 
-mod evaluate_scalar;
-mod evaluate_vector;
-mod margin;
-mod multiplier;
-mod zero_margin_or_multiplier;
+macro_rules! declare_and_publish {
+    ($mod_name:ident, $($type_name:ident),* $(,)?) => {
+        mod $mod_name;
 
-pub use evaluate_scalar::evaluate_scalar_eq_approx;
-pub use evaluate_vector::evaluate_vector_eq_approx;
-pub use margin::margin;
-pub use multiplier::multiplier;
-pub use zero_margin_or_multiplier::zero_margin_or_multiplier;
+        pub use $mod_name::{
+            $($type_name),*
+        };
+    };
+}
+
+declare_and_publish!(evaluate_scalar, evaluate_scalar_eq_approx);
+declare_and_publish!(evaluate_vector, evaluate_vector_eq_approx);
+declare_and_publish!(margin, margin);
+declare_and_publish!(multiplier, multiplier);
+declare_and_publish!(zero_margin_or_multiplier, zero_margin_or_multiplier);
 
 
 // ///////////////////////////// end of file //////////////////////////// //
