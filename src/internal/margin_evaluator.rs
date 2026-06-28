@@ -7,7 +7,8 @@ use crate::{
 };
 
 
-/// T.B.C.
+/// [`ApproximateEqualityEvaluator`] implementation backing
+/// [`crate::margin`].
 #[derive(Debug)]
 pub(crate) struct MarginEvaluator {
     pub(crate) factor : f64,

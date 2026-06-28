@@ -7,7 +7,8 @@ use crate::{
 };
 
 
-/// T.B.C.
+/// [`ApproximateEqualityEvaluator`] implementation backing
+/// [`crate::zero_margin_or_multiplier`].
 #[derive(Debug)]
 pub(crate) struct ZeroMarginOrMultiplierEvaluator {
     pub(crate) multiplier_factor :  f64,

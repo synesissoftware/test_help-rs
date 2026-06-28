@@ -3,7 +3,8 @@
 use crate::ComparisonResult;
 
 
-/// T.B.C.
+/// Compares `expected` and `actual` using absolute `margin_factor`
+/// tolerance.
 pub(crate) fn compare_approximate_equality_by_margin(
     expected : f64,
     actual : f64,
@@ -36,7 +37,8 @@ pub(crate) fn compare_approximate_equality_by_margin(
     result_from_range_(expected_lo, expected_hi, actual)
 }
 
-/// T.B.C.
+/// Compares `expected` and `actual` using relative `multiplier_factor`
+/// tolerance.
 pub(crate) fn compare_approximate_equality_by_multiplier(
     expected : f64,
     actual : f64,
@@ -69,7 +71,8 @@ pub(crate) fn compare_approximate_equality_by_multiplier(
     result_from_range_(expected_lo, expected_hi, actual)
 }
 
-/// T.B.C.
+/// Compares `expected` and `actual` using `margin_factor` when either
+/// operand is zero, otherwise `multiplier_factor`.
 pub(crate) fn compare_approximate_equality_by_zero_margin_or_multiplier(
     expected : f64,
     actual : f64,
