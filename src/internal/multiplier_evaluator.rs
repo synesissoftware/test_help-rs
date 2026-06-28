@@ -1,0 +1,36 @@
+// multiplier_evaluator.rs : src/internal
+
+use crate::{
+    traits::ApproximateEqualityEvaluator,
+    utils::compare_approximate_equality_by_multiplier,
+    ComparisonResult,
+};
+
+
+/// T.B.C.
+#[derive(Debug)]
+pub(crate) struct MultiplierEvaluator {
+    pub(crate) factor : f64,
+}
+
+
+// Trait implementations
+
+impl ApproximateEqualityEvaluator for MultiplierEvaluator {
+    fn evaluate(
+        &self,
+        expected : f64,
+        actual : f64,
+    ) -> (
+        ComparisonResult, // comparison_result
+        Option<f64>,      // margin_factor
+        Option<f64>,      // multiplier_factor
+    ) {
+        let comparison_result = compare_approximate_equality_by_multiplier(expected, actual, self.factor);
+
+        (comparison_result, None, Some(self.factor))
+    }
+}
+
+
+// ///////////////////////////// end of file //////////////////////////// //
