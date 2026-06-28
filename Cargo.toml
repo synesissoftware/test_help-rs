@@ -7,13 +7,26 @@
 authors = [
 	"Matt Wilson <matthew@synesis.com.au>",
 ]
+categories = [
+	"development-tools::testing",
+]
 description = "Test helpers for Rust"
+documentation = "https://docs.rs/test_help-rs"
 edition = "2021"
 homepage = "https://github.com/synesissoftware/test_help-rs"
+keywords = [
+	"approximate",
+	"assertions",
+	"f64",
+	"float",
+	"testing",
+]
 license = "BSD-3-Clause"
 name = "test_help-rs"
 readme = "README.md"
-version = "0.1.0"
+repository = "https://github.com/synesissoftware/test_help-rs"
+rust-version = "1.74"
+version = "0.1.1"
 
 
 # ##########################################################
@@ -34,7 +47,6 @@ path = "examples/scalars.rs"
 [features]
 
 default = [
-
 ]
 
 # General features:
@@ -43,9 +55,10 @@ default = [
 
 null-feature = []
 
+
 # Crate-specific features:
 #
-# - "nan-equality" - allows two `f64::NAN` values to be evaluated to be equal for the purposes of passing the assertions. NOTE: this affects all stock comparisons of the crate, but does not affect custom implementations of `xxApproximateEqualityEvaluator`;
+# - "nan-equality" - allows two `f64::NAN` values to be evaluated to be equal for the purposes of passing the assertions. NOTE: this affects all stock comparisons of the crate, but does not affect custom implementations of `ApproximateEqualityEvaluator`;
 
 nan-equality = []
 

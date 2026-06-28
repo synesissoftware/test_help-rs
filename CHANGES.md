@@ -6,7 +6,8 @@
 * added **CHANGES.md**;
 * added **TODO.md**;
 * added **.gitattributes**;
-* renamed **.rustfmt.toml** => **rustfmt.toml**;
+* renamed **.rustfmt.toml** => **rustfmt.toml** (and aligned `edition` with **Cargo.toml**);
+* **Cargo.toml** metadata (**repository**, **documentation**, **categories**, **keywords**, **rust-version**);
 
 
 ## 0.1.0 - 17th September 2024
