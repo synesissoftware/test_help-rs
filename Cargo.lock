@@ -4,9 +4,9 @@ version = 3
 
 [[package]]
 name = "base-traits"
-version = "0.0.3"
+version = "0.0.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d14fc4f83b2b810f24389f7a18a830b21329735794e1cbd3154dbe90349c132"
+checksum = "9bb2de59cca22f51f3301a09c549b0b4a32f56e8a007d0d44b02a1ce42975b37"
 
 [[package]]
 name = "test_help-rs"
