@@ -6,7 +6,7 @@
 // /////////////////////////////////////////////////////////
 // crate-level feature definitions
 
-#![cfg_attr(test, feature(more_float_constants))]
+#![cfg_attr(all(test, feature = "nightly-constants"), feature(more_float_constants))]
 
 
 // /////////////////////////////////////////////////////////
@@ -1062,6 +1062,7 @@ mod tests {
         #[test]
         fn TEST_assert_scalar_eq_approx_2_PARAMETER_FOR_EXACTLY_EQUAL_VALUES() {
 
+            // literals
             assert_scalar_eq_approx!(-1.23456789e-10, -1.23456789e-10);
             assert_scalar_eq_approx!(-0.123456789, -0.123456789);
             assert_scalar_eq_approx!(-0.1, -0.1);
@@ -1070,12 +1071,13 @@ mod tests {
             assert_scalar_eq_approx!(0.123456789, 0.123456789);
             assert_scalar_eq_approx!(1.23456789e+10, 1.23456789e+10);
 
+            // `f64` associated constants (stable as of edition 2021 / Rust 1.56)
+            assert_scalar_eq_approx!(f64::EPSILON, f64::EPSILON);
             assert_scalar_eq_approx!(f64::INFINITY, f64::INFINITY);
-            assert_scalar_eq_approx!(f64::NEG_INFINITY, f64::NEG_INFINITY);
-
+            assert_scalar_eq_approx!(f64::MAX, f64::MAX);
             assert_scalar_eq_approx!(f64::MIN, f64::MIN);
             assert_scalar_eq_approx!(f64::MIN_POSITIVE, f64::MIN_POSITIVE);
-            assert_scalar_eq_approx!(f64::MAX, f64::MAX);
+            assert_scalar_eq_approx!(f64::NEG_INFINITY, f64::NEG_INFINITY);
 
             #[cfg(feature = "nan-equality")]
             {
@@ -1086,34 +1088,41 @@ mod tests {
                 assert_scalar_ne_approx!(f64::NAN, f64::NAN);
             }
 
+            // `std::f64::consts` (stable as of edition 2021 / Rust 1.56)
             {
                 use std::f64::consts::*;
 
-                assert_scalar_eq_approx!(PI, PI);
-                assert_scalar_eq_approx!(TAU, TAU);
-                assert_scalar_eq_approx!(PHI, PHI);
-                assert_scalar_eq_approx!(EGAMMA, EGAMMA);
+                assert_scalar_eq_approx!(E, E);
+                assert_scalar_eq_approx!(FRAC_1_PI, FRAC_1_PI);
+                assert_scalar_eq_approx!(FRAC_1_SQRT_2, FRAC_1_SQRT_2);
+                assert_scalar_eq_approx!(FRAC_2_PI, FRAC_2_PI);
+                assert_scalar_eq_approx!(FRAC_2_SQRT_PI, FRAC_2_SQRT_PI);
                 assert_scalar_eq_approx!(FRAC_PI_2, FRAC_PI_2);
                 assert_scalar_eq_approx!(FRAC_PI_3, FRAC_PI_3);
                 assert_scalar_eq_approx!(FRAC_PI_4, FRAC_PI_4);
                 assert_scalar_eq_approx!(FRAC_PI_6, FRAC_PI_6);
                 assert_scalar_eq_approx!(FRAC_PI_8, FRAC_PI_8);
-                assert_scalar_eq_approx!(FRAC_1_PI, FRAC_1_PI);
-                assert_scalar_eq_approx!(FRAC_1_SQRT_PI, FRAC_1_SQRT_PI);
-                assert_scalar_eq_approx!(FRAC_1_SQRT_2PI, FRAC_1_SQRT_2PI);
-                assert_scalar_eq_approx!(FRAC_2_PI, FRAC_2_PI);
-                assert_scalar_eq_approx!(FRAC_2_SQRT_PI, FRAC_2_SQRT_PI);
-                assert_scalar_eq_approx!(SQRT_2, SQRT_2);
-                assert_scalar_eq_approx!(FRAC_1_SQRT_2, FRAC_1_SQRT_2);
-                assert_scalar_eq_approx!(SQRT_3, SQRT_3);
-                assert_scalar_eq_approx!(FRAC_1_SQRT_3, FRAC_1_SQRT_3);
-                assert_scalar_eq_approx!(E, E);
-                assert_scalar_eq_approx!(LOG2_10, LOG2_10);
-                assert_scalar_eq_approx!(LOG2_E, LOG2_E);
+                assert_scalar_eq_approx!(LN_10, LN_10);
+                assert_scalar_eq_approx!(LN_2, LN_2);
                 assert_scalar_eq_approx!(LOG10_2, LOG10_2);
                 assert_scalar_eq_approx!(LOG10_E, LOG10_E);
-                assert_scalar_eq_approx!(LN_2, LN_2);
-                assert_scalar_eq_approx!(LN_10, LN_10);
+                assert_scalar_eq_approx!(LOG2_10, LOG2_10);
+                assert_scalar_eq_approx!(LOG2_E, LOG2_E);
+                assert_scalar_eq_approx!(PI, PI);
+                assert_scalar_eq_approx!(SQRT_2, SQRT_2);
+                assert_scalar_eq_approx!(TAU, TAU);
+            }
+
+            #[cfg(feature = "nightly-constants")]
+            {
+                use std::f64::consts::*;
+
+                assert_scalar_eq_approx!(FRAC_1_SQRT_PI, FRAC_1_SQRT_PI);
+                assert_scalar_eq_approx!(FRAC_1_SQRT_2PI, FRAC_1_SQRT_2PI);
+                assert_scalar_eq_approx!(FRAC_1_SQRT_3, FRAC_1_SQRT_3);
+                assert_scalar_eq_approx!(FRAC_1_SQRT_5, FRAC_1_SQRT_5);
+                assert_scalar_eq_approx!(SQRT_3, SQRT_3);
+                assert_scalar_eq_approx!(SQRT_5, SQRT_5);
             }
         }
 

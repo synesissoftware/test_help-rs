@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+set -euo pipefail
+
+CARGO="${HOME}/.cargo/bin/cargo"
+if [[ ! -x "${CARGO}" ]]; then
+	CARGO="$(command -v cargo || true)"
+fi
+if [[ -z "${CARGO}" ]]; then
+	echo "error: cargo not found (install via https://rustup.rs/)" >&2
+	exit 1
+fi
+
+RUSTC="$(rustup which --toolchain nightly rustc 2>/dev/null || true)"
+if [[ -z "${RUSTC}" ]]; then
+	echo "error: nightly toolchain is required for nightly-constants tests" >&2
+	echo "  rustup toolchain install nightly" >&2
+	exit 1
+fi
+
+export RUSTC
+export PATH="${HOME}/.cargo/bin:${PATH}"
+
+exec "${CARGO}" +nightly test --features nightly-constants "$@"

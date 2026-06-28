@@ -27,6 +27,9 @@
 	"files.trimTrailingWhitespace": true,
 	"git.mergeEditor": false,
 	"rust-analyzer.cargo.noDefaultFeatures": true,
+	"rust-analyzer.cargo.features": [
+		// "nightly-constants",
+	],
 	"rust-analyzer.completion.autoimport.enable": false,
 	"rust-analyzer.showUnlinkedFileNotification": false,
 }
