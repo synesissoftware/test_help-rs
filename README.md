@@ -1,11 +1,19 @@
 # test_help-rs <!-- omit in toc -->
 
+![Language](https://img.shields.io/badge/Rust-000000?style=flat&logo=rust&logoColor=white)
+[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![GitHub release](https://img.shields.io/github/v/release/synesissoftware/test_help-rs.svg)](https://github.com/synesissoftware/test_help-rs/releases/latest)
+[![Last Commit](https://img.shields.io/github/last-commit/synesissoftware/test_help-rs)](https://github.com/synesissoftware/test_help-rs/commits/master)
+[![Crates.io](https://img.shields.io/crates/v/test_help-rs.svg)](https://crates.io/crates/test_help-rs)
+![MSRV](https://img.shields.io/badge/MSRV-1.74-lightgrey)
+[![docs.rs](https://docs.rs/test_help-rs/badge.svg)](https://docs.rs/test_help-rs)
+
 Test helpers for Rust
 
 
 ## Introduction
 
-Rust has powerful and easy-to-use unit-testing mechanisms, but there are some missing elements, particular around the use of floating-point values - `f32` and `f64` - that are provided by this crate to allowing for assertion of approximate equality, as in:
+Rust has powerful and easy-to-use unit-testing mechanisms, but there are some missing elements, particularly around the use of floating-point values - `f32` and `f64` - that are provided by this crate for asserting approximate equality, as in:
 
 ```Rust
 use test_helpers::{
@@ -57,7 +65,7 @@ fn example_test_of_vector_evaluation() {
 Reference in **Cargo.toml** in the usual way:
 
 ```toml
-test_help-rs = { version = "~0.1" }
+test_help-rs = { version = "0.1" }
 ```
 
 
@@ -115,7 +123,13 @@ The following traits are defined:
 
 ## Examples
 
-T.B.C.
+An example program is provided in [**examples/scalars.rs**](./examples/scalars.rs):
+
+```sh
+cargo run --example scalars
+```
+
+It exercises `assert_scalar_eq_approx!()` and `assert_scalar_ne_approx!()` with margin- and multiplier-based evaluators.
 
 
 ## Project Information
@@ -133,7 +147,7 @@ Defect reports, feature requests, and pull requests are welcome on https://githu
 ### Dependencies
 
 
-Crates upon which **test_help-rs** depend:
+Crates upon which **test_help-rs** depends:
 
 * [**base-traits**](https://github.com/synesissoftware/base-traits);
 
