@@ -16,6 +16,30 @@ pub(crate) struct ZeroMarginOrMultiplierEvaluator {
 }
 
 
+// API functions
+
+impl ZeroMarginOrMultiplierEvaluator {
+}
+
+
+// Mutating methods
+
+impl ZeroMarginOrMultiplierEvaluator {
+}
+
+
+// Non-mutating methods
+
+impl ZeroMarginOrMultiplierEvaluator {
+}
+
+
+// Implementation
+
+impl ZeroMarginOrMultiplierEvaluator {
+}
+
+
 // Trait implementations
 
 impl ApproximateEqualityEvaluator for ZeroMarginOrMultiplierEvaluator {

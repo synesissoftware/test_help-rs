@@ -6,6 +6,8 @@ use crate::{
 };
 
 
+// API functions
+
 /// Creates an [`ApproximateEqualityEvaluator`] that operates by applying
 /// the given `multiplier_factor` as a multiplier to determine approximate
 /// equality in all cases except when or both comparands is zero, in which

@@ -15,6 +15,30 @@ pub(crate) struct MultiplierEvaluator {
 }
 
 
+// API functions
+
+impl MultiplierEvaluator {
+}
+
+
+// Mutating methods
+
+impl MultiplierEvaluator {
+}
+
+
+// Non-mutating methods
+
+impl MultiplierEvaluator {
+}
+
+
+// Implementation
+
+impl MultiplierEvaluator {
+}
+
+
 // Trait implementations
 
 impl ApproximateEqualityEvaluator for MultiplierEvaluator {

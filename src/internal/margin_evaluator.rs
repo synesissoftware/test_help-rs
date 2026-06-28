@@ -15,6 +15,30 @@ pub(crate) struct MarginEvaluator {
 }
 
 
+// API functions
+
+impl MarginEvaluator {
+}
+
+
+// Mutating methods
+
+impl MarginEvaluator {
+}
+
+
+// Non-mutating methods
+
+impl MarginEvaluator {
+}
+
+
+// Implementation
+
+impl MarginEvaluator {
+}
+
+
 // Trait implementations
 
 impl ApproximateEqualityEvaluator for MarginEvaluator {

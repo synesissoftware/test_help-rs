@@ -1,7 +1,5 @@
 // evaluate_vector.rs : src/api
 
-use super::evaluate_scalar_eq_approx;
-
 use crate::{
     traits::{
         ApproximateEqualityEvaluator,
@@ -11,12 +9,52 @@ use crate::{
     VectorComparisonResult,
 };
 
+use super::evaluate_scalar_eq_approx;
+
 use std::{
     convert as std_convert,
     fmt as std_fmt,
 };
 
 
+// API functions
+
+/// Compares two vectors element-wise using `evaluator` without asserting.
+///
+/// `expected` and `actual` may be slices, arrays, or [`Vec`]; each element
+/// pair is compared via [`evaluate_scalar_eq_approx`].
+///
+/// Used by [`assert_vector_eq_approx!`] and
+/// [`assert_vector_ne_approx!`]; may also be used when building custom
+/// vector assertion macros.
+///
+/// # Returns
+///
+/// A tuple of:
+///
+/// * [`VectorComparisonResult`];
+/// * `margin_factor` from the first inexact element match, if any;
+/// * `multiplier_factor` from the first inexact element match, if any;
+///
+/// When lengths differ, returns
+/// [`VectorComparisonResult::DifferentLengths`]
+/// with `(None, None)` factors.
+///
+/// # Examples
+///
+/// ```
+/// use test_helpers::{
+///     evaluate_vector_eq_approx,
+///     multiplier,
+///     VectorComparisonResult,
+/// };
+///
+/// let expected = &[3.0, -40404.0, 1.23456];
+/// let actual = vec![3.0, -40410.0, 1.234567];
+/// let (result, _, _) =
+///     evaluate_vector_eq_approx(&expected, &actual, &multiplier(0.00015));
+/// assert!(matches!(result, VectorComparisonResult::ApproximatelyEqual));
+/// ```
 pub fn evaluate_vector_eq_approx<T_expected, T_actual, T_expectedElement, T_actualElement>(
     expected : &T_expected,
     actual : &T_actual,

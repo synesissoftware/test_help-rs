@@ -3,6 +3,8 @@
 use crate::ComparisonResult;
 
 
+// Helper functions
+
 /// Compares `expected` and `actual` using absolute `margin_factor`
 /// tolerance.
 pub(crate) fn compare_approximate_equality_by_margin(
@@ -143,6 +145,7 @@ fn result_from_range_(
 #[rustfmt::skip]
 mod tests {
     #![allow(non_snake_case)]
+    #![cfg_attr(debug_assertions, allow(unused_imports))]
 
 
     use super::{

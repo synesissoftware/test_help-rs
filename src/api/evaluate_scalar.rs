@@ -11,6 +11,37 @@ use crate::{
 use std::fmt as std_fmt;
 
 
+// API functions
+
+/// Compares two scalar values using `evaluator` without asserting.
+///
+/// Converts `expected` and `actual` to `f64` via [`TestableAsF64`], then
+/// delegates to [`ApproximateEqualityEvaluator::evaluate`].
+///
+/// Used by [`assert_scalar_eq_approx!`] and
+/// [`assert_scalar_ne_approx!`]; may also be used when building custom
+/// assertion macros for application-defined types.
+///
+/// # Returns
+///
+/// A tuple of:
+///
+/// * [`ComparisonResult`];
+/// * `margin_factor` reported by the evaluator, if any;
+/// * `multiplier_factor` reported by the evaluator, if any;
+///
+/// # Examples
+///
+/// ```
+/// use test_helpers::{
+///     evaluate_scalar_eq_approx,
+///     margin,
+///     ComparisonResult,
+/// };
+///
+/// let (result, _, _) = evaluate_scalar_eq_approx(&3.0, &3.0001, &margin(0.0001));
+/// assert_eq!(ComparisonResult::ApproximatelyEqual, result);
+/// ```
 pub fn evaluate_scalar_eq_approx<T_expected, T_actual>(
     expected : &T_expected,
     actual : &T_actual,
