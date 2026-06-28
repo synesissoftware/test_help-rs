@@ -70,7 +70,9 @@ nightly-constants = []
 
 [dependencies]
 
-base-traits = "0"
+base-traits = { version = "0", default-features = false, features = [
+    "implement-ToF64-for-built_ins",
+] }
 
 
 [dev-dependencies]
