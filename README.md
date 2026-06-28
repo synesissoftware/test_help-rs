@@ -81,7 +81,7 @@ The following constants are defined:
 
 ### Enumerations
 
-The following enuemrations are defined:
+The following enumerations are defined:
 
 * `ComparisonResult` - ... TBC;
 * `VectorComparisonResult` - ... TBC;
