@@ -70,7 +70,7 @@ nightly-constants = []
 
 [dependencies]
 
-base-traits = "~0.0.3"
+base-traits = "0"
 
 
 [dev-dependencies]
