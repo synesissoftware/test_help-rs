@@ -15,8 +15,8 @@ fn main() {
         println!();
         println!("compare two vectors (README-style, with `multiplier()`):");
 
-        let expected = &[ 3.0, -40404.0, 1.23456 ];
-        let actual = Vec::from([ 3.0, -40410.0, 1.234567 ]);
+        let expected = &[3.0, -40404.0, 1.23456];
+        let actual = Vec::from([3.0, -40410.0, 1.234567]);
 
         assert_vector_eq_approx!(expected, actual, multiplier(0.00015));
     }
@@ -25,8 +25,8 @@ fn main() {
         println!();
         println!("compare two vectors (with `margin()`):");
 
-        let expected = &[ 1.0, 2.0, 3.0 ];
-        let actual = Vec::from([ 1.0, 2.001, 3.0 ]);
+        let expected = &[1.0, 2.0, 3.0];
+        let actual = Vec::from([1.0, 2.001, 3.0]);
 
         // this one passes
         assert_vector_ne_approx!(expected, actual, margin(0.0));
@@ -43,8 +43,8 @@ fn main() {
         println!();
         println!("compare two vectors (with `multiplier()`):");
 
-        let expected = &[ 1.0, 2.0, 3.0 ];
-        let actual = Vec::from([ 1.0, 2.001, 3.0 ]);
+        let expected = &[1.0, 2.0, 3.0];
+        let actual = Vec::from([1.0, 2.001, 3.0]);
 
         // this one passes
         assert_vector_ne_approx!(expected, actual, multiplier(0.0));
