@@ -1,5 +1,9 @@
 {
 	"[json]": {
+		"editor.insertSpaces": false,
+		"editor.tabSize": 2,
+	},
+	"[markdown]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
 	},
@@ -26,13 +30,14 @@
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
 	"editor.renderWhitespace": "all",
+	"editor.rulers": [ 76 ],
 	"editor.tabSize": 2,
 	"files.insertFinalNewline": true,
 	"files.trimTrailingWhitespace": true,
 	"git.mergeEditor": false,
 	"rust-analyzer.cargo.noDefaultFeatures": true,
 	"rust-analyzer.cargo.features": [
-		// "nightly-constants",
+		"default",
 	],
 	"rust-analyzer.completion.autoimport.enable": false,
 	"rust-analyzer.showUnlinkedFileNotification": false,
