@@ -66,6 +66,7 @@ reorder_modules=true
 # report_fixme="Always"
 # report_todo="Never"
 # required_version="????"
+short_array_element_width_threshold=1
 # single_line_if_else_max_width=0 # deprecated
 show_parse_errors=true
 skip_children=false
