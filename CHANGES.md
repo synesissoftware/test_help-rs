@@ -1,6 +1,11 @@
 # test_help-rs Changes <!-- omit in toc -->
 
 
+## 0.1.2 - 14th July 2026
+
+* updated dependencies;
+
+
 ## 0.1.1 - 28th June 2026
 
 * added **CHANGES.md**;
