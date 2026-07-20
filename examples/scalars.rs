@@ -26,7 +26,7 @@ fn main() {
             assert_scalar_eq_approx!(expected, actual, margin(0.0));
         })
         .is_err();
-        assert!(failed, "expected assert_scalar_eq_approx! to fail");
+        assert!(failed, "`assert_scalar_eq_approx!()` was expected to fail but did not");
     }
 
     {
@@ -44,7 +44,7 @@ fn main() {
             assert_scalar_eq_approx!(expected, actual, multiplier(0.0));
         })
         .is_err();
-        assert!(failed, "expected assert_scalar_eq_approx! to fail");
+        assert!(failed, "`assert_scalar_eq_approx!()` was expected to fail but did not");
     }
 }
 

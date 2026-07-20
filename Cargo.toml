@@ -26,7 +26,7 @@ name = "test_help-rs"
 readme = "README.md"
 repository = "https://github.com/synesissoftware/test_help-rs"
 rust-version = "1.74"
-version = "0.1.3"
+version = "0.2.0"
 
 
 # ##########################################################
@@ -41,6 +41,10 @@ name = "scalars"
 path = "examples/scalars.rs"
 
 [[example]]
+name = "strings"
+path = "examples/strings.rs"
+
+[[example]]
 name = "vectors"
 path = "examples/vectors.rs"
 
@@ -51,6 +55,11 @@ path = "examples/vectors.rs"
 [features]
 
 default = [
+]
+
+full = [
+	"nan-equality",
+	"nightly-constants",
 ]
 
 # General features:
@@ -79,8 +88,10 @@ bt-rs = { version = "0.0", default-features = false, features = [
 
 [dependencies]
 
-base-traits = { version = "0", default-features = false, features = [
-    "implement-ToF64-for-built_ins",
+base-traits = { version = ">=0.1.2, <1.0.0", default-features = false, features = [
+	"implement-AsStr-for-built_ins",
+	"implement-AsStr-for-String",
+	"implement-ToF64-for-built_ins",
 ] }
 
 

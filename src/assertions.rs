@@ -6,14 +6,14 @@
 ///
 /// # Forms
 ///
-/// * `assert_scalar_eq_approx!(expected, actual)` — stock
-///   [`zero_margin_or_multiplier`] evaluator
-///   ([`constants::DEFAULT_MULTIPLIER`] /
-///   [`constants::DEFAULT_MARGIN`]);
+/// * `assert_scalar_eq_approx!(expected, actual)` — uses the stock
+///   [`crate::zero_margin_or_multiplier`] evaluator
+///   ([`crate::constants::DEFAULT_MULTIPLIER`] /
+///   [`crate::constants::DEFAULT_MARGIN`]);
 /// * `assert_scalar_eq_approx!(expected, actual, evaluator)` — custom
-///   [`traits::ApproximateEqualityEvaluator`];
+///   [`crate::traits::ApproximateEqualityEvaluator`];
 ///
-/// Operands must implement [`traits::TestableAsF64`].
+/// Operands must implement [`crate::traits::TestableAsF64`].
 ///
 /// # Examples
 ///
@@ -25,7 +25,7 @@
 ///
 /// # Panics
 ///
-/// Panics when the evaluator reports [`ComparisonResult::Unequal`].
+/// Panics when the evaluator reports [`crate::ComparisonResult::Unequal`].
 #[macro_export]
 macro_rules! assert_scalar_eq_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {
@@ -98,17 +98,28 @@ macro_rules! assert_scalar_eq_approx {
 ///
 /// # Forms
 ///
-/// * `assert_scalar_ne_approx!(expected, actual)` — stock
-///   [`zero_margin_or_multiplier`] evaluator;
+/// * `assert_scalar_ne_approx!(expected, actual)` — uses the stock
+///   [`crate::zero_margin_or_multiplier`] evaluator
+///   ([`crate::constants::DEFAULT_MULTIPLIER`] /
+///   [`crate::constants::DEFAULT_MARGIN`]);
 /// * `assert_scalar_ne_approx!(expected, actual, evaluator)` — custom
-///   [`traits::ApproximateEqualityEvaluator`];
+///   [`crate::traits::ApproximateEqualityEvaluator`];
 ///
-/// Operands must implement [`traits::TestableAsF64`].
+/// Operands must implement [`crate::traits::TestableAsF64`].
+///
+/// # Examples
+///
+/// ```
+/// use test_helpers::{assert_scalar_ne_approx, margin};
+///
+/// assert_scalar_ne_approx!(3.0, 4.0, margin(0.0001));
+/// ```
 ///
 /// # Panics
 ///
-/// Panics when the evaluator reports [`ComparisonResult::ExactlyEqual`]
-/// or [`ComparisonResult::ApproximatelyEqual`].
+/// Panics when the evaluator reports
+/// [`crate::ComparisonResult::ExactlyEqual`] or
+/// [`crate::ComparisonResult::ApproximatelyEqual`].
 #[macro_export]
 macro_rules! assert_scalar_ne_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {
@@ -181,13 +192,15 @@ macro_rules! assert_scalar_ne_approx {
 ///
 /// # Forms
 ///
-/// * `assert_vector_eq_approx!(expected, actual)` — stock
-///   [`zero_margin_or_multiplier`] evaluator;
+/// * `assert_vector_eq_approx!(expected, actual)` — uses the stock
+///   [`crate::zero_margin_or_multiplier`] evaluator
+///   ([`crate::constants::DEFAULT_MULTIPLIER`] /
+///   [`crate::constants::DEFAULT_MARGIN`]);
 /// * `assert_vector_eq_approx!(expected, actual, evaluator)` — custom
-///   [`traits::ApproximateEqualityEvaluator`];
+///   [`crate::traits::ApproximateEqualityEvaluator`];
 ///
 /// `expected` and `actual` may be slices, arrays, or [`Vec`]; element
-/// types must implement [`traits::TestableAsF64`].
+/// types must implement [`crate::traits::TestableAsF64`].
 ///
 /// # Examples
 ///
@@ -201,8 +214,10 @@ macro_rules! assert_scalar_ne_approx {
 ///
 /// # Panics
 ///
-/// Panics when lengths differ, when any element pair is unequal under the
-/// evaluator, or when [`VectorComparisonResult::UnequalElements`] applies.
+/// Panics when lengths differ
+/// ([`crate::VectorComparisonResult::DifferentLengths`]), or when any
+/// element pair is unequal under the evaluator
+/// ([`crate::VectorComparisonResult::UnequalElements`]).
 #[macro_export]
 macro_rules! assert_vector_eq_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {
@@ -282,19 +297,31 @@ macro_rules! assert_vector_eq_approx {
 ///
 /// # Forms
 ///
-/// * `assert_vector_ne_approx!(expected, actual)` — stock
-///   [`zero_margin_or_multiplier`] evaluator;
+/// * `assert_vector_ne_approx!(expected, actual)` — uses the stock
+///   [`crate::zero_margin_or_multiplier`] evaluator
+///   ([`crate::constants::DEFAULT_MULTIPLIER`] /
+///   [`crate::constants::DEFAULT_MARGIN`]);
 /// * `assert_vector_ne_approx!(expected, actual, evaluator)` — custom
-///   [`traits::ApproximateEqualityEvaluator`];
+///   [`crate::traits::ApproximateEqualityEvaluator`];
 ///
 /// `expected` and `actual` may be slices, arrays, or [`Vec`]; element
-/// types must implement [`traits::TestableAsF64`].
+/// types must implement [`crate::traits::TestableAsF64`].
+///
+/// # Examples
+///
+/// ```
+/// use test_helpers::{assert_vector_ne_approx, multiplier};
+///
+/// let expected = &[1.0, 2.0];
+/// let actual = vec![1.0, 9.0];
+/// assert_vector_ne_approx!(expected, actual, multiplier(0.00015));
+/// ```
 ///
 /// # Panics
 ///
 /// Panics when lengths match and every element pair is equal under the
-/// evaluator ([`VectorComparisonResult::ExactlyEqual`] or
-/// [`VectorComparisonResult::ApproximatelyEqual`]).
+/// evaluator ([`crate::VectorComparisonResult::ExactlyEqual`] or
+/// [`crate::VectorComparisonResult::ApproximatelyEqual`]).
 #[macro_export]
 macro_rules! assert_vector_ne_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {

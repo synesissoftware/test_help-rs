@@ -75,6 +75,8 @@ pub mod traits;
 
 #[macro_use]
 mod assertions;
+#[macro_use]
+mod assertions_as_str;
 mod internal;
 mod utils;
 
@@ -87,9 +89,12 @@ declare_and_publish!(
     zero_margin_or_multiplier,
 );
 
+#[doc(hidden)]
+pub use base_traits;
 
 #[cfg(test)]
 #[rustfmt::skip]
 mod tests;
+
 
 // ///////////////////////////// end of file //////////////////////////// //

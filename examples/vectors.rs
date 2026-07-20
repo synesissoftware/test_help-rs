@@ -36,7 +36,7 @@ fn main() {
             assert_vector_eq_approx!(expected, actual, margin(0.0));
         })
         .is_err();
-        assert!(failed, "expected assert_vector_eq_approx! to fail");
+        assert!(failed, "`assert_vector_eq_approx!()` was expected to fail but did not");
     }
 
     {
@@ -54,7 +54,7 @@ fn main() {
             assert_vector_eq_approx!(expected, actual, multiplier(0.0));
         })
         .is_err();
-        assert!(failed, "expected assert_vector_eq_approx! to fail");
+        assert!(failed, "`assert_vector_eq_approx!()` was expected to fail but did not");
     }
 }
 

@@ -1,6 +1,12 @@
 # test_help-rs Changes <!-- omit in toc -->
 
 
+## 0.2.0 - 20th July 2026
+
+* added `assert_as_str_eq!()` and `assert_as_str_ne!()` macros that compare instances of string-like type via `#as_str()` method - either inherently or via `crate::base_traits::AsStr`;
+* added feature `"full"`;
+
+
 ## 0.1.3 - 17th July 2026
 
 * updated internal utility macro `declare_and_publish!()` to match that of **base-traits**;
