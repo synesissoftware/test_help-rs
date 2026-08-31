@@ -19,7 +19,7 @@ checksum = "e28ef636359d6c9f59ae07a0c24e62951a5b7054d50c0b00511380a95208e5e2"
 
 [[package]]
 name = "test_help-rs"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "base-traits",
  "bt-rs",

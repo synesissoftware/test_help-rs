@@ -2,15 +2,30 @@
 //!
 //! **test_help-rs** provides assertion macros and evaluators for
 //! approximate equality of floating-point scalars and vectors in unit
-//! tests — filling gaps around `f32` and `f64` comparisons in Rust's
-//! stock testing support.
+//! tests — filling gaps around `f32` and `f64` comparisons in Rust's stock
+//! testing support.
+//!
+//! Scalar comparisons report exact, approximate, or unequal results. Vector
+//! comparisons apply the same evaluator element-wise and also report
+//! unequal lengths or the first unequal element.
+//!
+//! The stock tolerance helpers are [`margin`], [`multiplier`], and
+//! [`zero_margin_or_multiplier`]. Custom
+//! [`traits::ApproximateEqualityEvaluator`] implementations can provide
+//! other comparison strategies.
+//!
+//! The optional `"nan-equality"` feature treats two `NaN` values as exactly
+//! equal in stock comparisons. The `"nightly-constants"` feature enables
+//! additional standard-library constant tests and requires a nightly
+//! toolchain; it is intended for crate development rather than downstream
+//! use.
 //!
 //! # Installation
 //!
 //! Reference in **Cargo.toml** in the usual way:
 //!
 //! ```toml
-//! test_help-rs = { version = "0.1" }
+//! test_help-rs = { version = "0.2.1" }
 //! ```
 //!
 //! # Components
@@ -24,23 +39,22 @@
 //!
 //! ## Functions
 //!
-//! * [`margin`] — margin-based [`ApproximateEqualityEvaluator`];
-//! * [`multiplier`] — multiplier-based [`ApproximateEqualityEvaluator`];
-//! * [`zero_margin_or_multiplier`] — combined stock evaluator used by
-//!   the two-argument assertion macros;
-//! * [`evaluate_scalar_eq_approx`] — scalar comparison without
-//!   asserting;
-//! * [`evaluate_vector_eq_approx`] — vector comparison without
-//!   asserting;
+//! * [`margin`] — margin-based
+//!   [`traits::ApproximateEqualityEvaluator`];
+//! * [`multiplier`] — multiplier-based
+//!   [`traits::ApproximateEqualityEvaluator`];
+//! * [`zero_margin_or_multiplier`] — combined stock evaluator used by the
+//!   two-argument assertion macros;
+//! * [`evaluate_scalar_eq_approx`] — scalar comparison without asserting;
+//! * [`evaluate_vector_eq_approx`] — vector comparison without asserting;
 //!
 //! ## Types
 //!
 //! * [`ComparisonResult`] — outcome of a scalar comparison;
 //! * [`VectorComparisonResult`] — outcome of a vector comparison;
-//! * [`traits::ApproximateEqualityEvaluator`] — custom comparison
-//!   strategy;
-//! * [`traits::TestableAsF64`] — types usable with the assertion
-//!   macros (via [`base_traits::ToF64`]);
+//! * [`traits::ApproximateEqualityEvaluator`] — custom comparison strategy;
+//! * [`traits::TestableAsF64`] — types usable with the assertion macros
+//!   (via [`base_traits::ToF64`]);
 //!
 //! ## Constants
 //!

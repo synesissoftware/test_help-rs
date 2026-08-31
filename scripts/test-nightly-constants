@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 set -euo pipefail
 
+NIGHTLY_TOOLCHAIN="${NIGHTLY_TOOLCHAIN:-nightly-2026-08-08}"
 CARGO="${HOME}/.cargo/bin/cargo"
 if [[ ! -x "${CARGO}" ]]; then
 	CARGO="$(command -v cargo || true)"
@@ -10,14 +11,14 @@ if [[ -z "${CARGO}" ]]; then
 	exit 1
 fi
 
-RUSTC="$(rustup which --toolchain nightly rustc 2>/dev/null || true)"
+RUSTC="$(rustup which --toolchain "${NIGHTLY_TOOLCHAIN}" rustc 2>/dev/null || true)"
 if [[ -z "${RUSTC}" ]]; then
 	echo "error: nightly toolchain is required for nightly-constants tests" >&2
-	echo "  rustup toolchain install nightly" >&2
+	echo "  rustup toolchain install ${NIGHTLY_TOOLCHAIN}" >&2
 	exit 1
 fi
 
 export RUSTC
 export PATH="${HOME}/.cargo/bin:${PATH}"
 
-exec "${CARGO}" +nightly test --features nightly-constants "$@"
+exec "${CARGO}" "+${NIGHTLY_TOOLCHAIN}" test --features nightly-constants --locked "$@"

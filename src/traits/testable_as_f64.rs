@@ -11,6 +11,8 @@ use std::fmt as std_fmt;
 /// NOTE: it is implemented for any types that implement
 /// `base_traits::ToF64` (and [`std_fmt::Debug`]).
 pub trait TestableAsF64: std_fmt::Debug {
+    /// Converts the instance to the `f64` value used for
+    /// comparison.
     fn testable_as_f64(&self) -> f64;
 }
 

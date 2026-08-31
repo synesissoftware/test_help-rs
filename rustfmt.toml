@@ -1,13 +1,14 @@
 
 # rustfmt.toml for test_help-rs
 #
-# Requires nightly rustfmt with unstable features enabled, e.g.:
+# Requires pinned nightly rustfmt with unstable features enabled, e.g.:
 #
 #   ./scripts/fmt
 #
-# Or:
+# The wrapper uses nightly-2026-08-08 by default. To invoke rustfmt
+# directly:
 #
-#   RUSTFMT_BIN="$(rustup which --toolchain nightly rustfmt)" && find . -name "*.rs" -print0 | xargs -0 -I {} "$RUSTFMT_BIN" {} --edition 2024 --config-path ./rustfmt.toml
+#   RUSTFMT_BIN="$(rustup which --toolchain nightly-2026-08-08 rustfmt)" && find . -name "*.rs" -print0 | xargs -0 -I {} "$RUSTFMT_BIN" {} --edition 2021 --config-path ./rustfmt.toml
 
 # array_width=60 # deprecated
 # attr_fn_like_width=70 # deprecated
