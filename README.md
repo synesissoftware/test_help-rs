@@ -11,11 +11,36 @@ Test helpers for Rust
 [![docs.rs](https://docs.rs/test_help-rs/badge.svg)](https://docs.rs/test_help-rs)
 
 
+## Table of Contents <!-- omit in toc -->
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Components](#components)
+  - [Constants](#constants)
+  - [Enumerations](#enumerations)
+  - [Features](#features)
+  - [Functions](#functions)
+  - [Macros](#macros)
+  - [Structures](#structures)
+  - [Traits](#traits)
+- [Examples](#examples)
+- [Project Information](#project-information)
+  - [Where to get help](#where-to-get-help)
+  - [Contribution guidelines](#contribution-guidelines)
+  - [Dependencies](#dependencies)
+    - [Efferent (fan-out)](#efferent-fan-out)
+    - [Build Dependencies](#build-dependencies)
+    - [Development Dependencies](#development-dependencies)
+    - [Afferent (fan-in)](#afferent-fan-in)
+  - [Related projects](#related-projects)
+  - [License](#license)
+
+
 ## Introduction
 
 Rust has powerful and easy-to-use unit-testing mechanisms, but there are some missing elements, particularly around the use of floating-point values - `f32` and `f64` - that are provided by this crate for asserting approximate equality, as in:
 
-```Rust
+```rust
 use test_helpers::{
 	assert_scalar_eq_approx,
 	assert_vector_eq_approx,
@@ -39,37 +64,12 @@ fn example_test_of_vector_evaluation() {
 ```
 
 
-## Table of Contents <!-- omit in toc -->
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Components](#components)
-	- [Constants](#constants)
-	- [Enumerations](#enumerations)
-	- [Features](#features)
-	- [Functions](#functions)
-	- [Macros](#macros)
-	- [Structures](#structures)
-	- [Traits](#traits)
-- [Examples](#examples)
-- [Project Information](#project-information)
-	- [Where to get help](#where-to-get-help)
-	- [Contribution guidelines](#contribution-guidelines)
-	- [Dependencies](#dependencies)
-		- [Efferent (fan-out)](#efferent-fan-out)
-		- [Build Dependencies](#build-dependencies)
-		- [Development Dependencies](#development-dependencies)
-		- [Afferent (fan-in)](#afferent-fan-in)
-	- [Related projects](#related-projects)
-	- [License](#license)
-
-
 ## Installation
 
 Reference in **Cargo.toml** in the usual way:
 
 ```toml
-test_help-rs = { version = "0.1" }
+test_help-rs = { version = "0.2.1" }
 ```
 
 
@@ -104,8 +104,9 @@ The following optional features are defined in **Cargo.toml**:
 
 * **Crate-specific features**:
 
+	* `full` — enables all crate-specific features; use a nightly toolchain because it includes `nightly-constants`;
 	* `nan-equality` — allows two `f64::NAN` values to be treated as equal for stock comparisons (does not affect custom [`ApproximateEqualityEvaluator`](https://docs.rs/test_help-rs/latest/test_helpers/traits/trait.ApproximateEqualityEvaluator.html) implementations);
-	* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with a nightly toolchain via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
+* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with pinned nightly-2026-08-08 via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
 
 * **General features**:
 
@@ -116,11 +117,11 @@ The following optional features are defined in **Cargo.toml**:
 
 The following functions are defined:
 
-* `margin() -> impl ApproximateEqualityEvaluator` - creates an implementation of the `ApproximateEqualityEvaluator` trait that defines a margin-based evaluator instance;
-* `multiplier() -> impl ApproximateEqualityEvaluator` - creates an implementation of the `ApproximateEqualityEvaluator` trait that defines a multiplier-based evaluator instance;
-* `zero_margin_or_multiplier() -> impl ApproximateEqualityEvaluator` - creates an implementation of the `ApproximateEqualityEvaluator` trait that defines both a margin to be used when expected value and/or actual value is zero, and a multiplier to be used in all other cases;
-* `evaluate_scalar_eq_approx()` - a generic function that may be used to compare expected and actual scalar values of types that are logically `f64`, along with an evaluator (of type `&dyn ApproximateEqualityEvaluator`). This function is used in the crate macros, but may also be used as part of the implementation of such macros for testing application-defined types;
-* `evaluate_vector_eq_approx()` - a generic function that may be used to compare expected and actual values that are vectors of types that are logically `f64`, along with an evaluator (of type `&dyn ApproximateEqualityEvaluator`). This function is used in the crate macros, but may also be used as part of the implementation of such macros for testing application-defined types;
+* `margin() -> impl ApproximateEqualityEvaluator` — creates a margin-based evaluator;
+* `multiplier() -> impl ApproximateEqualityEvaluator` — creates a multiplier-based evaluator;
+* `zero_margin_or_multiplier() -> impl ApproximateEqualityEvaluator` — applies a margin when either comparand is zero and a multiplier otherwise;
+* `evaluate_scalar_eq_approx()` — compares scalar values that are logically `f64` without asserting;
+* `evaluate_vector_eq_approx()` — compares vectors of values that are logically `f64` without asserting;
 
 
 ### Macros
@@ -146,8 +147,8 @@ No public structures are defined at this time.
 
 The following traits are defined:
 
-* `ApproximateEqualityEvaluator` - prescribes the (non-mutating) instance method `#evaluate()`, allowing custom evaluators to be defined for use with the assertion macros;
-* `TestableAsF64` - prescribes the (non-mutating) instance method `#testable_as_f64() : f64`, and provides implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
+* `ApproximateEqualityEvaluator` — prescribes the non-mutating `evaluate()` method, allowing custom evaluators to be used with the assertion macros;
+* `TestableAsF64` — prescribes the non-mutating `testable_as_f64() -> f64` method, with an implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
 
 
 ## Examples
@@ -160,13 +161,23 @@ Example programs are provided in the **examples** directory:
 cargo run --example scalars
 ```
 
+* [**examples/strings.rs**](./examples/strings.rs) — string-view equality and inequality using a custom `AsStr` implementation:
+
+```sh
+cargo run --example strings
+```
+
 * [**examples/vectors.rs**](./examples/vectors.rs) — vector approximate equality and inequality (slice and `Vec`):
 
 ```sh
 cargo run --example vectors
 ```
 
-**scalars** exercises `assert_scalar_eq_approx!()` and `assert_scalar_ne_approx!()` with margin- and multiplier-based evaluators. **vectors** includes the README introduction example and similar pass/fail demonstrations for vector assertions.
+**scalars** exercises `assert_scalar_eq_approx!()` and
+`assert_scalar_ne_approx!()` with margin- and multiplier-based evaluators.
+**strings** demonstrates custom `AsStr` implementations. **vectors** includes
+the README introduction example and similar pass/fail demonstrations for
+vector assertions.
 
 
 ## Project Information
@@ -189,6 +200,9 @@ Defect reports, feature requests, and pull requests are welcome on https://githu
 Libraries upon which **test_help-rs** depends:
 
 * [**base-traits**](https://github.com/synesissoftware/base-traits) — [`ToF64`](https://docs.rs/base-traits/latest/base_traits/trait.ToF64.html) trait used by [`TestableAsF64`](https://docs.rs/test_help-rs/latest/test_helpers/traits/trait.TestableAsF64.html);
+
+The committed **Cargo.lock** is retained for reproducible development and CI
+builds; locked Cargo commands are used throughout the workflow.
 
 
 #### Build Dependencies

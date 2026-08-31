@@ -1,9 +1,18 @@
-# test_help-rs Changes <!-- omit in toc -->
+# test_help-rs - Changes <!-- omit in toc -->
+
+
+## 0.2.1 - 31st August 2026
+
+* strengthened **.github/workflows/ci.yml** with locked stable, nightly, and MSRV checks, documentation, examples, checkers, and package validation;
+* pinned the nightly formatter and feature-test toolchains in **scripts/fmt**, **scripts/test-nightly-constants**, and **rustfmt.toml**;
+* added **scripts/check_derives.py** and expanded public rustdoc;
+* improved **Cargo.toml**, **README.md**, **NEWS.md**, **EXAMPLES.md**, and **TODO.md** release documentation;
+* removed the empty **.cargo/config.toml**;
 
 
 ## 0.2.0 - 20th July 2026
 
-* added `assert_as_str_eq!()` and `assert_as_str_ne!()` macros that compare instances of string-like type via `#as_str()` method - either inherently or via `crate::base_traits::AsStr`;
+* added `assert_as_str_eq!()` and `assert_as_str_ne!()` macros that compare instances of string-like type via `as_str()` method — either inherently or via `crate::base_traits::AsStr`;
 * added feature `"full"`;
 
 

@@ -13,6 +13,15 @@ categories = [
 description = "Test helpers for Rust"
 documentation = "https://docs.rs/test_help-rs"
 edition = "2021"
+exclude = [
+	".cargo",
+	".cursor",
+	".github",
+	".vimrc",
+	".vscode",
+	"scripts",
+	"target",
+]
 homepage = "https://github.com/synesissoftware/test_help-rs"
 keywords = [
 	"approximate",
@@ -26,7 +35,10 @@ name = "test_help-rs"
 readme = "README.md"
 repository = "https://github.com/synesissoftware/test_help-rs"
 rust-version = "1.74"
-version = "0.2.0"
+version = "0.2.1"
+
+[package.metadata.docs.rs]
+no-default-features = true
 
 
 # ##########################################################
