@@ -1,4 +1,4 @@
-# test_help-rs - NEWS <!-- omit in toc -->
+# test_help-rs - News <!-- omit in toc -->
 
 | Date                  | News Item                                 |
 | --------------------- | ----------------------------------------- |
