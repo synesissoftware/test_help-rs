@@ -10,7 +10,7 @@ authors = [
 categories = [
 	"development-tools::testing",
 ]
-description = "Test helpers for Rust"
+description = "Test helpers (for Rust)"
 documentation = "https://docs.rs/test_help-rs"
 edition = "2021"
 exclude = [
@@ -36,6 +36,8 @@ readme = "README.md"
 repository = "https://github.com/synesissoftware/test_help-rs"
 rust-version = "1.74"
 version = "0.2.1"
+
+# docs.rs builds without default features.
 
 [package.metadata.docs.rs]
 no-default-features = true
@@ -76,8 +78,10 @@ full = [
 
 # General features:
 #
+# - "_NEVER_TO_BE_ENABLED" - this is a placeholder feature and must NEVER be specified;
 # - "null-feature" - a feature that has no effect (and, thus, is useful for simplifying driver scripts);
 
+_NEVER_TO_BE_ENABLED = []
 null-feature = []
 
 
@@ -86,32 +90,28 @@ null-feature = []
 # - "nan-equality" - allows two `f64::NAN` values to be evaluated to be equal for the purposes of passing the assertions. NOTE: this affects all stock comparisons of the crate, but does not affect custom implementations of `ApproximateEqualityEvaluator`;
 # - "nightly-constants" - enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; requires a nightly toolchain — use `./scripts/test-nightly-constants` (or ensure rustup's `~/.cargo/bin` precedes Homebrew on `PATH`, then `cargo +nightly test --features nightly-constants`);
 
-nan-equality = []
-nightly-constants = []
-
-
+nan-equality = [
+]
+nightly-constants = [
+]
 # ##########################################################
 # Dependencies
 
 [build-dependencies]
 
 bt-rs = { version = "0.0", default-features = false, features = [
-] }
+]}
 
 [dependencies]
 
-base-traits = { version = ">=0.1.2, <1.0.0", default-features = false, features = [
+base-traits = { version = "0.1", default-features = false, features = [
 	"implement-AsStr-for-built_ins",
 	"implement-AsStr-for-String",
 	"implement-ToF64-for-built_ins",
-] }
+]}
 
 
 [dev-dependencies]
-
-# criterion = { version = "0.8", default-features = false, features = [
-# 	"plotters",
-# ] }
 
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
