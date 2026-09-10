@@ -62,6 +62,10 @@ path = "examples/strings.rs"
 name = "vectors"
 path = "examples/vectors.rs"
 
+[[example]]
+name = "versions"
+path = "examples/versions/main.rs"
+
 
 # ##########################################################
 # Features
