@@ -10,17 +10,17 @@
 
 ## Functional improvements
 
-* \<none>;
+* \<none>
 
 
 ## Performance improvements
 
-* \<none>;
+* \<none>
 
 
 ## Packaging improvements
 
-* \<none>;
+* \<none>
 
 
 <!-- ########################### end of file ########################### -->
