@@ -4,22 +4,22 @@ version = 3
 
 [[package]]
 name = "base-traits"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "69068402cce0b92d771a83fb17d617a975ce1b8122968fdd025e1ed6c7bd0d5e"
+checksum = "febda1e6bd75ec4a0680596f5d8689bbc391c3213607d286ab711f3b8b091ee1"
 dependencies = [
  "bt-rs",
 ]
 
 [[package]]
 name = "bt-rs"
-version = "0.0.3"
+version = "0.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66c801a3e540d22c99661706133db245edae489c872cfdb2f5925b2077170285"
+checksum = "5b33a0644862185265eb4bee9b1679c1ae36f8258c000f3f482210acd95f7d70"
 
 [[package]]
 name = "test_help-rs"
-version = "0.2.1"
+version = "0.2.2"
 dependencies = [
  "base-traits",
  "bt-rs",

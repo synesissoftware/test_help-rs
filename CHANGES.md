@@ -1,6 +1,17 @@
 # test_help-rs - Changes <!-- omit in toc -->
 
 
+## 0.2.2 - 11th September 2026
+
+* modernised repository metadata, editor configuration, ignore rules, and Rust formatting configuration;
+* refined stable and nightly CI checks for features, documentation, examples, packaging, and the MSRV;
+* added the **versions** example and excluded development-only files from published packages;
+* documented the MSRV and added the `_NEVER_TO_BE_ENABLED` placeholder feature;
+* canonicalised **Cargo.toml** metadata, feature declarations, and dependency specifications;
+* improved the test-name checker to handle numeric and padded construct names;
+* refreshed the formatting and nightly feature-test drivers for the pinned nightly toolchain;
+
+
 ## 0.2.1 - 31st August 2026
 
 * strengthened **.github/workflows/ci.yml** with locked stable, nightly, and MSRV checks, documentation, examples, checkers, and package validation;
