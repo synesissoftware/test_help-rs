@@ -106,7 +106,7 @@ The following optional features are defined in **Cargo.toml**:
 
 	* `full` — enables all crate-specific features; use a nightly toolchain because it includes `nightly-constants`;
 	* `nan-equality` — allows two `f64::NAN` values to be treated as equal for stock comparisons (does not affect custom [`ApproximateEqualityEvaluator`](https://docs.rs/test_help-rs/latest/test_helpers/traits/trait.ApproximateEqualityEvaluator.html) implementations);
-* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with pinned nightly-2026-08-08 via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
+* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with pinned nightly-2026-09-10 via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
 
 * **General features**:
 
