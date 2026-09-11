@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 set -euo pipefail
 
-NIGHTLY_TOOLCHAIN="${NIGHTLY_TOOLCHAIN:-nightly-2026-08-08}"
+NIGHTLY_TOOLCHAIN="${NIGHTLY_TOOLCHAIN:-nightly-2026-09-10}"
 CARGO="${HOME}/.cargo/bin/cargo"
 if [[ ! -x "${CARGO}" ]]; then
 	CARGO="$(command -v cargo || true)"

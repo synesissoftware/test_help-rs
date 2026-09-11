@@ -27,6 +27,7 @@ Test helpers for Rust
 - [Project Information](#project-information)
   - [Where to get help](#where-to-get-help)
   - [Contribution guidelines](#contribution-guidelines)
+  - [Minimum Supported Rust Version (MSRV)](#minimum-supported-rust-version-msrv)
   - [Dependencies](#dependencies)
     - [Efferent (fan-out)](#efferent-fan-out)
     - [Build Dependencies](#build-dependencies)
@@ -106,7 +107,7 @@ The following optional features are defined in **Cargo.toml**:
 
 	* `full` — enables all crate-specific features; use a nightly toolchain because it includes `nightly-constants`;
 	* `nan-equality` — allows two `f64::NAN` values to be treated as equal for stock comparisons (does not affect custom [`ApproximateEqualityEvaluator`](https://docs.rs/test_help-rs/latest/test_helpers/traits/trait.ApproximateEqualityEvaluator.html) implementations);
-* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with pinned nightly-2026-08-08 via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
+* `nightly-constants` — enables unit tests for additional `std::f64` constants that require the unstable `more_float_constants` feature; build and test with pinned nightly-2026-09-10 via `./scripts/test-nightly-constants` (this feature is for crate development only and is not required by downstream consumers);
 
 * **General features**:
 
@@ -192,6 +193,15 @@ vector assertions.
 Defect reports, feature requests, and pull requests are welcome on https://github.com/synesissoftware/test_help-rs.
 
 
+### Minimum Supported Rust Version (MSRV)
+
+The declared Minimum Supported Rust Version (MSRV) for **test_help-rs** is **1.74**.
+
+This MSRV guarantee applies to the library crate itself, its runtime dependencies (`[dependencies]`), and its build dependencies (`[build-dependencies]`). Downstream consumers compiling this crate as a dependency are guaranteed that it builds cleanly on the declared MSRV toolchain.
+
+Development dependencies (`[dev-dependencies]`, such as benchmarking frameworks like **criterion**) may require newer Rust toolchains for local development or performance testing. These dev-dependencies are never fetched or compiled by downstream consumers and do not affect the library's MSRV guarantee.
+
+
 ### Dependencies
 
 
@@ -239,4 +249,3 @@ Projects that depend on **test_help-rs** (typically as a **dev-dependency** for 
 
 
 <!-- ########################### end of file ########################### -->
-
