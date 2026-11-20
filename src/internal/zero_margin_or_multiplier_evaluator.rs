@@ -1,9 +1,9 @@
 // zero_margin_or_multiplier_evaluator.rs : src/internal
 
 use crate::{
-    ComparisonResult,
     traits::ApproximateEqualityEvaluator,
     utils::compare_approximate_equality_by_zero_margin_or_multiplier,
+    ComparisonResult,
 };
 
 
@@ -28,7 +28,7 @@ impl ZeroMarginOrMultiplierEvaluator {
 }
 
 
-// Non-mutating methods
+// Nonmutating methods
 
 impl ZeroMarginOrMultiplierEvaluator {
 }

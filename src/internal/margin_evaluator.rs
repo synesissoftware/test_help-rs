@@ -27,7 +27,7 @@ impl MarginEvaluator {
 }
 
 
-// Non-mutating methods
+// Nonmutating methods
 
 impl MarginEvaluator {
 }
