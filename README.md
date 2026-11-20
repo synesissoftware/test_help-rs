@@ -14,6 +14,7 @@ Test helpers for Rust
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
+- [Developer Experience](#developer-experience)
 - [Installation](#installation)
 - [Components](#components)
   - [Constants](#constants)
@@ -63,6 +64,30 @@ fn example_test_of_vector_evaluation() {
 	assert_vector_eq_approx!(expected, actual, multiplier(0.00015));
 }
 ```
+
+
+## Developer Experience
+
+**test_help-rs** needs a Rust toolchain at the declared MSRV (**1.74**) or newer, and Cargo.
+
+From a clone of this repository:
+
+```sh
+cargo test
+```
+
+The shortest useful assertion is the stock two-argument scalar form, which applies the default margin and multiplier:
+
+```rust
+use test_helpers::assert_scalar_eq_approx;
+
+#[test]
+fn approx_equal() {
+	assert_scalar_eq_approx!(3.0, 3.00001);
+}
+```
+
+Add the crate as a **dev-dependency** as shown in [Installation](#installation). Further programs live under [Examples](#examples).
 
 
 ## Installation
