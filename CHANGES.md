@@ -4,6 +4,7 @@
 ## 0.2.3 - 20th November 2026
 
 * silenced `unused_imports` warnings from the `AsStr` prelude inside `assert_as_str_eq!()` and `assert_as_str_ne!()` when an operand already provides an inherent `as_str()`;
+* removed unused `use super::*;` imports from the as-string assertion tests in **src/tests/assertions_as_str.rs**;
 
 
 ## 0.2.2 - 11th September 2026
