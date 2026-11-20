@@ -70,7 +70,7 @@ fn example_test_of_vector_evaluation() {
 Reference in **Cargo.toml** in the usual way:
 
 ```toml
-test_help-rs = { version = "0.2.1" }
+test_help-rs = { version = "0.2.3" }
 ```
 
 
