@@ -1,6 +1,6 @@
 // assertions_as_str.rs : test_help-rs
 
-// As-str assertion macros
+// AsStr assertion macros
 
 /// Asserts that two values are equal when compared as strings ([`&str`]).
 ///
@@ -32,11 +32,13 @@ macro_rules! assert_as_str_eq {
         let actual_arg = &$actual;
 
         let expected = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             expected_arg.as_str()
         };
         let actual = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             actual_arg.as_str()
@@ -50,11 +52,13 @@ macro_rules! assert_as_str_eq {
         let actual_arg = &$actual;
 
         let expected = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             expected_arg.as_str()
         };
         let actual = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             actual_arg.as_str()
@@ -94,11 +98,13 @@ macro_rules! assert_as_str_ne {
         let actual_arg = &$actual;
 
         let expected = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             expected_arg.as_str()
         };
         let actual = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             actual_arg.as_str()
@@ -112,11 +118,13 @@ macro_rules! assert_as_str_ne {
         let actual_arg = &$actual;
 
         let expected = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             expected_arg.as_str()
         };
         let actual = {
+            #[allow(unused_imports)]
             use $crate::base_traits::AsStr as _;
 
             actual_arg.as_str()

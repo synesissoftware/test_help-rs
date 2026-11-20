@@ -7,8 +7,6 @@
 mod TEST_str_WITH_str {
     #![allow(non_snake_case)]
 
-    use super::*;
-
 
     #[test]
     fn TEST_SUCCEEDING() {
@@ -73,8 +71,6 @@ mod TEST_str_WITH_str {
 
 mod TEST_str_WITH_String {
     #![allow(non_snake_case)]
-
-    use super::*;
 
 
     #[test]
@@ -155,8 +151,6 @@ mod TEST_str_WITH_String {
 
 mod TEST_String_WITH_str {
     #![allow(non_snake_case)]
-
-    use super::*;
 
 
     #[test]

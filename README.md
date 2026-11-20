@@ -70,7 +70,7 @@ fn example_test_of_vector_evaluation() {
 Reference in **Cargo.toml** in the usual way:
 
 ```toml
-test_help-rs = { version = "0.2.1" }
+test_help-rs = { version = "0.2.3" }
 ```
 
 
@@ -148,8 +148,8 @@ No public structures are defined at this time.
 
 The following traits are defined:
 
-* `ApproximateEqualityEvaluator` — prescribes the non-mutating `evaluate()` method, allowing custom evaluators to be used with the assertion macros;
-* `TestableAsF64` — prescribes the non-mutating `testable_as_f64() -> f64` method, with an implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
+* `ApproximateEqualityEvaluator` — prescribes the nonmutating `evaluate()` method, allowing custom evaluators to be used with the assertion macros;
+* `TestableAsF64` — prescribes the nonmutating `testable_as_f64() -> f64` method, with an implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
 
 
 ## Examples
