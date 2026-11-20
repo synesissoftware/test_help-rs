@@ -10,7 +10,7 @@ use crate::{
 
 /// Creates an [`ApproximateEqualityEvaluator`] that operates by applying
 /// the given `multiplier_factor` as a multiplier to determine approximate
-/// equality in all cases except when or both comparands is zero, in which
+/// equality in all cases except when either comparand is zero, in which
 /// case it applies the `zero_margin_factor` as a margin to determine
 /// approximate equality.
 pub fn zero_margin_or_multiplier(
