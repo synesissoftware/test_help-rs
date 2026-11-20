@@ -3,7 +3,7 @@
 
 | Date                | News Item | Details |
 | ------------------- | --------- | ------- |
-| 20th November 2026  | [test_help-rs 0.2.3](https://github.com/synesissoftware/test_help-rs/releases/tag/0.2.3) released | |
+| 20th November 2026  | [test_help-rs 0.2.3](https://github.com/synesissoftware/test_help-rs/releases/tag/0.2.3) released | Silenced unused `AsStr` imports |
 | 11th September 2026 | [test_help-rs 0.2.2](https://github.com/synesissoftware/test_help-rs/releases/tag/0.2.2) released | Repository, CI, packaging, and tooling updates |
 | 31st August 2026    | [test_help-rs 0.2.1](https://github.com/synesissoftware/test_help-rs/releases/tag/0.2.1) released | Strengthened CI and checkers |
 | 20th July 2026      | [test_help-rs 0.2.0](https://github.com/synesissoftware/test_help-rs/releases/tag/0.2.0) released | AsStr comparison macros |
