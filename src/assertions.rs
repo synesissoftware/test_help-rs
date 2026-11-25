@@ -221,10 +221,6 @@ macro_rules! assert_scalar_ne_approx {
 #[macro_export]
 macro_rules! assert_vector_eq_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {
-        /*
-        let expected_param = &$expected;
-        let actual_param = &$actual;
-         */
         let expected = &$expected;
         let actual = &$actual;
         let evaluator : &dyn $crate::traits::ApproximateEqualityEvaluator = &$evaluator;
@@ -325,10 +321,6 @@ macro_rules! assert_vector_eq_approx {
 #[macro_export]
 macro_rules! assert_vector_ne_approx {
     ($expected:expr, $actual:expr, $evaluator:expr) => {
-        /*
-        let expected_param = &$expected;
-        let actual_param = &$actual;
-         */
         let expected = &$expected;
         let actual = &$actual;
         let evaluator : &dyn $crate::traits::ApproximateEqualityEvaluator = &$evaluator;

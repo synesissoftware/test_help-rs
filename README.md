@@ -14,6 +14,7 @@ Test helpers for Rust
 ## Table of Contents <!-- omit in toc -->
 
 - [Introduction](#introduction)
+- [Developer Experience](#developer-experience)
 - [Installation](#installation)
 - [Components](#components)
   - [Constants](#constants)
@@ -65,12 +66,36 @@ fn example_test_of_vector_evaluation() {
 ```
 
 
+## Developer Experience
+
+**test_help-rs** needs a Rust toolchain at the declared MSRV (**1.74**) or newer, and Cargo.
+
+From a clone of this repository:
+
+```sh
+cargo test
+```
+
+The shortest useful assertion is the stock two-argument scalar form, which applies the default margin and multiplier:
+
+```rust
+use test_helpers::assert_scalar_eq_approx;
+
+#[test]
+fn approx_equal() {
+	assert_scalar_eq_approx!(3.0, 3.00001);
+}
+```
+
+Add the crate as a **dev-dependency** as shown in [Installation](#installation). Further programs live under [Examples](#examples).
+
+
 ## Installation
 
 Reference in **Cargo.toml** in the usual way:
 
 ```toml
-test_help-rs = { version = "0.2.1" }
+test_help-rs = { version = "0.2.3" }
 ```
 
 
@@ -148,8 +173,8 @@ No public structures are defined at this time.
 
 The following traits are defined:
 
-* `ApproximateEqualityEvaluator` — prescribes the non-mutating `evaluate()` method, allowing custom evaluators to be used with the assertion macros;
-* `TestableAsF64` — prescribes the non-mutating `testable_as_f64() -> f64` method, with an implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
+* `ApproximateEqualityEvaluator` — prescribes the nonmutating `evaluate()` method, allowing custom evaluators to be used with the assertion macros;
+* `TestableAsF64` — prescribes the nonmutating `testable_as_f64() -> f64` method, with an implementation for any type that implements the `ToF64` trait defined in the [**base-traits**](https://github.com/synesissoftware/base-traits) crate;
 
 
 ## Examples
