@@ -103,12 +103,12 @@ nightly-constants = [
 
 [build-dependencies]
 
-bt-rs = { version = "0.0", default-features = false, features = [
+bt-rs = { version = "^0", default-features = false, features = [
 ]}
 
 [dependencies]
 
-base-traits = { version = "0.1", default-features = false, features = [
+base-traits = { version = "^0", default-features = false, features = [
 	"implement-AsStr-for-built_ins",
 	"implement-AsStr-for-String",
 	"implement-ToF64-for-built_ins",
